@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.classes.DaoImpl;
 import org.example.classes.HomeTaskDaoImpl;
 import org.example.classes.WorkTaskDaoImpl;
 import org.example.dao.interfaces.WorkTaskDao;
@@ -27,6 +28,9 @@ public class Main {
         workTask.setCost(100);
 
         WorkTaskDaoImpl workTaskDao = new WorkTaskDaoImpl();
-        workTaskDao.create(workTask);
+      //  workTaskDao.create(workTask);
+
+        workTask.setCost(43);
+        workTaskDao.update(workTask, WorkTask.class, 3);
     }
 }
