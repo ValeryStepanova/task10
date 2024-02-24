@@ -20,7 +20,7 @@ public class Main {
         homeTask.setAddress(home);
 
         HomeTaskDaoImpl homeTaskDao = new HomeTaskDaoImpl();
-       // homeTaskDao.create(homeTask);
+       homeTaskDao.create(homeTask);
 
         WorkTask workTask = new WorkTask();
         workTask.setName("WorkTask10");
@@ -28,9 +28,7 @@ public class Main {
         workTask.setCost(100);
 
         WorkTaskDaoImpl workTaskDao = new WorkTaskDaoImpl();
-      //  workTaskDao.create(workTask);
+        workTaskDao.create(workTask);
 
-        workTask.setCost(43);
-        workTaskDao.update(workTask, WorkTask.class, 3);
     }
 }
