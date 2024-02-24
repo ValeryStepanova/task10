@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.classes.DaoImpl;
 import org.example.classes.HomeTaskDaoImpl;
 import org.example.classes.WorkTaskDaoImpl;
 import org.example.dao.interfaces.WorkTaskDao;
@@ -19,7 +20,7 @@ public class Main {
         homeTask.setAddress(home);
 
         HomeTaskDaoImpl homeTaskDao = new HomeTaskDaoImpl();
-       // homeTaskDao.create(homeTask);
+       homeTaskDao.create(homeTask);
 
         WorkTask workTask = new WorkTask();
         workTask.setName("WorkTask10");
@@ -28,5 +29,6 @@ public class Main {
 
         WorkTaskDaoImpl workTaskDao = new WorkTaskDaoImpl();
         workTaskDao.create(workTask);
+
     }
 }
