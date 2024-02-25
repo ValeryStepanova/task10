@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Data
 @Getter
 @Setter
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Task implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

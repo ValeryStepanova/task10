@@ -14,9 +14,10 @@ import java.time.LocalDateTime;
 @ToString
 @Entity
 @Table(name = "home_task")
+@PrimaryKeyJoinColumn(name = "task_id")
 public class HomeTask extends Task {
     @CreationTimestamp
-    @Column(updatable = true)
+    @Column
     private LocalDateTime startDate;
 
     @CreationTimestamp
