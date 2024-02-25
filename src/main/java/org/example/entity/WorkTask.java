@@ -2,10 +2,7 @@ package org.example.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @Data

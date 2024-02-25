@@ -13,9 +13,10 @@ import java.io.Serializable;
 @Data
 @Getter
 @Setter
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Task implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column

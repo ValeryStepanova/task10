@@ -23,20 +23,19 @@ public class DaoImpl<T> implements Dao<T> {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         entityManager.getTransaction().begin();
         T realObj = entityManager.find(tClass, id);
-        if (isNull(obj)) {
+        if (isNull(realObj)) {
             entityManager.close();
             return null;
-        }
-        else {
-            Field[] fields = realObj.getClass().getDeclaredFields();
-            Arrays.stream(fields)
-                    .peek(field -> field.setAccessible(true))
+        } else {
+            Field[] objFields = tClass.getDeclaredFields();
+            Arrays.stream(objFields)
+                    .peek(q -> q.setAccessible(true))
                     .filter(field -> field.isAnnotationPresent(Column.class))
                     .forEach(field -> {
                         try {
                             field.set(realObj, field.get(obj));
                         } catch (IllegalAccessException e) {
-                            throw new RuntimeException(e);
+                            e.printStackTrace();
                         }
                     });
             entityManager.merge(realObj);
@@ -51,10 +50,10 @@ public class DaoImpl<T> implements Dao<T> {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         entityManager.getTransaction().begin();
         T obj = entityManager.find(tClass, id);
-        if(isNull(obj)) {
+        if (isNull(obj)) {
             entityManager.close();
             return null;
-        }else{
+        } else {
             entityManager.getTransaction().commit();
             entityManager.close();
             return obj;
@@ -62,17 +61,20 @@ public class DaoImpl<T> implements Dao<T> {
     }
 
     @Override
-    public void delete(int id, Class<T> tClass) {
+    public T delete(int id, Class<T> tClass) {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         entityManager.getTransaction().begin();
+
         T obj = entityManager.find(tClass, id);
-        if(isNull(obj)){
+        if (isNull(obj)) {
             entityManager.close();
-        }else{
+            return null;
+        } else {
             entityManager.remove(obj);
             entityManager.getTransaction().commit();
             entityManager.close();
         }
+        return obj;
     }
 
     public boolean isNull(T obj) {

@@ -1,0 +1,18 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="create_table_home_task" author="lera">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="home_task"/>
+            </not>
+        </preConditions>
+        <createTable tableName="home_task">
+            <column name="id" autoIncrement="true" type="int">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="varchar(200)"/>
+            <column name="description" type="varchar(200)"/>
+            <column name="start_date" type="timestamp"/>
+            <column name="end_date" type="timestamp"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
