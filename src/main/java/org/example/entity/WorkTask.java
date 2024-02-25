@@ -12,7 +12,6 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "work_task")
-@DiscriminatorValue("W")
 public class WorkTask extends Task {
     @Column
     private int cost;
