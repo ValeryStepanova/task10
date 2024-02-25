@@ -1,9 +1,9 @@
 package org.example.classes;
 
+import org.example.dao.interfaces.classes.HomeTaskDaoImpl;
 import org.example.entity.HomeTask;
 import org.example.hibernate.HibernateUtil;
 import org.example.utils.MockUtils;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;

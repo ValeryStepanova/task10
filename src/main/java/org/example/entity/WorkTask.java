@@ -12,7 +12,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "work_task")
-@DiscriminatorValue("W")
+@PrimaryKeyJoinColumn(name = "task_id")
 public class WorkTask extends Task {
     @Column
     private int cost;

@@ -1,4 +1,4 @@
-package org.example.classes;
+package org.example.dao.interfaces.classes;
 
 import org.example.dao.interfaces.HomeTaskDao;
 import org.example.entity.HomeTask;

@@ -1,6 +1,6 @@
 package org.example.classes;
 
-import org.example.entity.HomeTask;
+import org.example.dao.interfaces.classes.WorkTaskDaoImpl;
 import org.example.entity.WorkTask;
 import org.example.hibernate.HibernateUtil;
 import org.example.utils.MockUtils;

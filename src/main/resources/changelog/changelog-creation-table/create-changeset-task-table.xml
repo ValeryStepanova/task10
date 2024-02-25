@@ -9,14 +9,8 @@
             <column name="id" autoIncrement="true" type="int">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
-            <column name="task_type" type="varchar(1)"/>
             <column name="name" type="varchar(200)"/>
             <column name="description" type="varchar(200)"/>
-            <column name="cost" type="double"/>
-            <column name="start_date" type="timestamp"/>
-            <column name="end_date" type="timestamp"/>
-            <column name="street" type="varchar(200)"/>
-            <column name="city" type="varchar(200)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

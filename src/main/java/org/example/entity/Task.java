@@ -13,9 +13,7 @@ import java.io.Serializable;
 @Data
 @Getter
 @Setter
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "task_type", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("T")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Task implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
